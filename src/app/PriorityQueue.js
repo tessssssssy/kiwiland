@@ -1,3 +1,4 @@
+// PriorityQueue to be used in shortest path algorithm
 
 class Node {
     constructor(val, priority){

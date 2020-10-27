@@ -1,8 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 require("babel-polyfill")
+
+// import HtmlWebpackPlugin from 'html-webpack-plugin';
+// import ExtractTextPlugin from 'extract-text-webpack-plugin';
+// import 'babel-polyfill';
+
 module.exports = {
-  entry: ['babel-polyfill', __dirname + '/src/app/index.js'],
+  entry: ['babel-polyfill', __dirname + '/src/index.js'],
   output: {
    path: __dirname + '/dist',
    filename: 'bundle.js',
@@ -46,6 +51,9 @@ module.exports = {
   ],
   devServer: {
   contentBase: './src/public',
-  port: 8000
+  port: 3000,
+  writeToDisk: true,
   }
 }
+
+

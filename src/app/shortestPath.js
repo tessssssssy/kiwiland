@@ -48,8 +48,9 @@ const shortestPath = (graph, start, end) => {
         }
       }
     }
-    // console.log(previous);
-    // console.log(path);
+    console.log(distances);
+    console.log(previous);
+    console.log(path);
     // return distance of shortest path
     return getDistance(graph, path.concat(smallest).reverse());
   }

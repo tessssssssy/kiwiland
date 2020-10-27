@@ -1,8 +1,9 @@
-import WeightedGraph from './WeightedGraph.js';
+import WeightedGraph from './app/WeightedGraph.js';
 
 const makeGraph = (text) => {
     // takes the result of the text file and converts it into a graph
-    let arr = text.split(', ');
+	let arr = text.split(', ');
+	console.log(arr);
     const graph = new WeightedGraph();
     arr.forEach((path) => {
         graph.addVertex(path[0]);
@@ -29,7 +30,7 @@ document.querySelector("#read-button").addEventListener('click', function() {
 	reader.addEventListener('load', function(e) {
 	   // contents of the file
         let text = e.target.result;
-        makeGraph(text);
+        const graph = makeGraph(text);
         console.log(graph.pathList);
 	    document.querySelector("#file-contents").textContent = text;
 	});
