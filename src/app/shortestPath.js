@@ -48,9 +48,9 @@ const shortestPath = (graph, start, end) => {
         }
       }
     }
-    console.log(distances);
-    console.log(previous);
-    console.log(path);
+    // console.log(distances);
+    // console.log(previous);
+    // console.log(path);
     // return distance of shortest path
     return getDistance(graph, path.concat(smallest).reverse());
   }
@@ -72,7 +72,7 @@ const shortestPath = (graph, start, end) => {
   graph.addEdge("A", "E", 7); 
 
 const path = shortestPath(graph, "A", "C");
-console.log(path);
+// console.log(path);
 // console.log(getDistance(graph, path));
 
 export default shortestPath;

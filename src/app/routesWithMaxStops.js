@@ -2,6 +2,7 @@
 
 // "C" "C" - max 3 stops
 // "A" "C" - min 3, max 3 stops
+import WeightedGraph from './WeightedGraph.js';
 
 const graph = new WeightedGraph();
 graph.addVertex("A");
@@ -32,5 +33,27 @@ const routesWithMaxStops = (graph, start, finish, minStops = 0, maxStops) => {
     return numRoutes;
 }
 
-export default routesWithMaxStops;
+const breadthFirst = (graph, start) => {
+    let queue = [start];
+    let result = [start];
+    let visited = {};
+    let currentVertex;
+    visited[start] = true;
+
+    while (queue.length) {
+      currentVertex = queue.shift();
+      result.push(currentVertex);
+      graph.pathList[currentVertex].forEach(neighbour => {
+        if (!visited[neighbour]) {
+          visited[neighbour] = true;
+          queue.push(neighbour);
+        }
+      });
+    }
+    return result;
+}
+
+console.log(breadthFirst(graph, "A"));
+
+// export default routesWithMaxStops;
 

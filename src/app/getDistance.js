@@ -6,6 +6,7 @@
 // import WeightedGraph from './WeightedGraph.js';
 
 const getDistance = (graph, stops) => {
+    console.log(graph);
     let distance = 0;
     let counter = 0;
     for (let i = 0; i < stops.length - 1; i++) {

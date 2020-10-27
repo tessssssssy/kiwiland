@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" type="text/css" href="../styles/main.scss"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script
+    defer
+      src="http://code.jquery.com/jquery-3.5.1.min.js"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+      integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+      crossorigin="anonymous"
+    ></script>
     <title>Kiwiland</title>
-</head>
-<body>
-    <input type="file" id="file-input" />
-    <button id="read-button">Read File</button>
-    <pre id="file-contents"></pre>
-<script type="text/javascript" src="/bundle.js"></script></body>
-</html>
+  </head>
+  <body>
+<div class="container">
+    <h1>Upload file</h1>
+     <input type="file" id="file-input"/>
+    <button class="btn btn-success" id="read-button">Read File</button>
+    <!-- <pre id="file-contents"></pre> -->
+    <h3>Route Distances</h3>
 
+        <label for="route-input">Enter route to calculate distance (stops separated by commas):</label>
+        <input type="text" id="route-input">
+        <button id="route-button">Submit</button>
+
+    
+    <p id="route-distance">Route distance: </p>
+    <h3>Shortest Path Distance</h3>
+    <label for="start-input">Enter start:</label>
+    <input type="text" id="start-input">
+    <label for="finish-input">Enter finish:</label>
+    <input type="text" id="finish-input">
+    <button id="shortest-distance-button">Submit</button>
+    <p id="shortest-path-distance">Shortest path distance: </p>
+</div>
+  <script type="text/javascript" src="/bundle.js"></script></body>
+</html>
