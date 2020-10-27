@@ -1,4 +1,4 @@
-import getDistance from './getDistance';
+import shortestPath from './shortestPath';
 import WeightedGraph from './WeightedGraph';
 
 // jest.mock('./WeightedGraph');
@@ -25,12 +25,9 @@ const graph = new WeightedGraph();
     graph.addEdge("E", "B", 3);
     graph.addEdge("A", "E", 7); 
 
-test('calculates direct route distance between an array of stops', () => {
-    // define a graph - beforeeach
-      expect(getDistance(graph, ["A", "B", "C"])).toBe(9);
-      expect(getDistance(graph, ["A", "D"])).toBe(5);
-      expect(getDistance(graph, ["A", "D", "C"])).toBe(13);
-      expect(getDistance(graph, ["A", "E", "B", "C", "D"])).toBe(22);
-      expect(getDistance(graph, ["A", "E", "D"])).toBe("NO SUCH ROUTE");
-});
+    test('calculates the shortest distance between two stops', () => {
+        // define a graph - beforeeach
+          expect(shortestPath(graph, ["A", "C"])).toBe(9);
+          expect(shortestPath(graph, ["B", "B"])).toBe(9);
+    });
 
