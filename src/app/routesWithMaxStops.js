@@ -20,40 +20,38 @@ graph.addEdge("C", "E", 2);
 graph.addEdge("E", "B", 3);
 graph.addEdge("A", "E", 7); 
 
+// console.log(graph.pathList);
 
-const routesWithMaxStops = (graph, start, finish, minStops = 0, maxStops) => {
-    let numRoutes = 0;
-    // loop over the adjacent nodes until it reaches start or reaches max
-    let stops = 0;
-    while (stops <= maxStops) {
-        graph.pathList[finish].forEach((path) => {
-            
-        })
-    }
-    return numRoutes;
-}
-
-const breadthFirst = (graph, start) => {
-    let queue = [start];
-    let result = [start];
+const pathCounter = (graph, start, finish) => {
+    let currentPath = [];
+    let paths = [];
+    // initializes visited array
     let visited = {};
-    let currentVertex;
-    visited[start] = true;
-
-    while (queue.length) {
-      currentVertex = queue.shift();
-      result.push(currentVertex);
-      graph.pathList[currentVertex].forEach(neighbour => {
-        if (!visited[neighbour]) {
-          visited[neighbour] = true;
-          queue.push(neighbour);
-        }
-      });
-    }
-    return result;
+    Object.keys(graph.pathList).forEach((vertex) => {
+    visited[vertex] = false;
+    });
+    depthFirstSearch(graph, start, finish, visited, currentPath, paths)
+    return paths;
 }
 
-console.log(breadthFirst(graph, "A"));
+const depthFirstSearch = (graph, start, finish, visited, currentPath, paths) => {
+    if (visited[start] = true) return;
+    visited[start] = true;
+    currentPath.push(start);
+    if (start === finish) {
+        paths.push(currentPath);
+        visited[start] = false;
+        currentPath.pop();
+        return;
+    }
+    for (node in graph.pathList[start]) {
+        depthFirstSearch(node, finish)
+    }
+    currentPath.pop();
+    visited[start] = false;
+}
+
+console.log(pathCounter(graph, "A", "C"));
 
 // export default routesWithMaxStops;
 
