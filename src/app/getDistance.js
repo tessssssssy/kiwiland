@@ -3,7 +3,7 @@
 // must be a direct route, if no route return 
 
 // Graph: AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
-// 
+import WeightedGraph from './WeightedGraph.js';
 
 const getDistance = (graph, stops) => {
     let distance = 0;
@@ -18,5 +18,6 @@ const getDistance = (graph, stops) => {
         if (counter <= i) return 'NO SUCH ROUTE';
     }
 }
-
+// const graph = new WeightedGraph();
+// console.log(graph.pathList);
 export default getDistance;

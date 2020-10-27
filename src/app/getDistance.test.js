@@ -1,12 +1,14 @@
 const getDistance = require('./getDistance');
 const WeightedGraph = require('./WeightedGraph');
-
+jest.mock('./WeightedGraph');
 // define the graph
 
 // Graph: AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7
+const graph = WeightedGraph.mock.instances[0];
+// beforeEach(() => {
+// });
 
-beforeEach(() => {
-    const graph = new WeightedGraph();
+// const graph = new WeightedGraph();
     graph.addVertex("A");
     graph.addVertex("B");
     graph.addVertex("C");
@@ -21,7 +23,6 @@ beforeEach(() => {
     graph.addEdge("C", "E", 2);
     graph.addEdge("E", "B", 3);
     graph.addEdge("A", "E", 7); 
-});
 
 test('calculates direct route distance between an array of stops', () => {
     // define a graph - beforeeach
