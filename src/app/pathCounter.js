@@ -1,7 +1,4 @@
-
-
-import WeightedGraph from './WeightedGraph';
-import pathCounter from './pathCounter';
+import WeightedGraph from './WeightedGraph.js';
 
 const graph = new WeightedGraph();
 graph.addVertex("A");
@@ -19,20 +16,20 @@ graph.addEdge("C", "E", 2);
 graph.addEdge("E", "B", 3);
 graph.addEdge("A", "E", 7); 
 
-// console.log(graph.pathList);
-
 const pathCounter = (graph, start, finish) => {
+    console.log(start)
     let currentPath = [];
     let paths = [];
     // initializes visited array
     let visited = {};
     Object.keys(graph.pathList).forEach((vertex) => {
     visited[vertex] = false;
-    console.log(visited)
+    // console.log(visited)
     });
+    console.log(visited);
 
     const depthFirstSearch = (graph, start, finish) => {
-        console.log(graph.pathList);
+        // console.log(graph.pathList);
         if (visited[start] = true) return;
         visited[start] = true;
         currentPath.push(start);
@@ -43,7 +40,8 @@ const pathCounter = (graph, start, finish) => {
             return;
         }
         for (node in graph.pathList[start]) {
-            depthFirstSearch(node, finish)
+            console.log(node);
+            depthFirstSearch(graph, node, finish)
         }
         currentPath.pop();
         visited[start] = false;
@@ -53,14 +51,5 @@ const pathCounter = (graph, start, finish) => {
     return paths;
 }
 
-
-const routesWithMaxStops = (graph, start, finish, minStops = 0, maxStops) => {
-    const paths = pathCounter(graph, start, finish)
-    return paths.filter((path) => path.length <= maxStops && path.length >= minStops).length;
-}
-
-
-// console.log(pathCounter(graph, "A", "C"));
-
-export default routesWithMaxStops;
-
+console.log(pathCounter(graph, "A", "C"));
+export default pathCounter;

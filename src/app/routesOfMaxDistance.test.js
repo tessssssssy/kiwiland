@@ -1,4 +1,4 @@
-import getDistance from './getDistance';
+import routesOfMaxDistance from './routesOfMaxDistance';
 import WeightedGraph from './WeightedGraph';
 
 // jest.mock('./WeightedGraph');
@@ -25,22 +25,7 @@ const graph = new WeightedGraph();
     graph.addEdge("E", "B", 3);
     graph.addEdge("A", "E", 7); 
 
-test('calculates direct route distance from A-B-C', () => {
-      expect(getDistance(graph, ["A", "B", "C"])).toBe(9);
-});
-
-test('calculates direct route distance from A-D', () => {
-      expect(getDistance(graph, ["A", "D"])).toBe(5);
-});
-
-test('calculates direct route distance from A-D-C', () => {
-      expect(getDistance(graph, ["A", "D", "C"])).toBe(13);
-});
-
-test('calculates direct route distance from A-E-B-C-D', () => {
-      expect(getDistance(graph, ["A", "E", "B", "C", "D"])).toBe(22);
-});
-
-test('calculates direct route distance from A-E-D', () => {
-      expect(getDistance(graph, ["A", "E", "D"])).toBe("NO SUCH ROUTE");
+test('finds the number of paths between two stops less than specified distance', () => {
+    // define a graph - beforeeach
+      expect(routesOfMaxDistance(graph, "C", "C", 30)).toBe(7);  
 });
